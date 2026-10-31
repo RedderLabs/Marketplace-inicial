@@ -1,0 +1,34 @@
+{
+  "name": "redder-roles",
+  "description": "Skills de roles profesionales en español, de Redder Labs.",
+  "owner": {
+    "name": "Redder Labs",
+    "url": "https://redderlabs.com"
+  },
+  "plugins": [
+    {
+      "name": "todo",
+      "displayName": "Todas las skills",
+      "source": "./",
+      "description": "Instala de una vez las 2 skills del repo. No lo combines con los plugins por categoría o tendrás las skills repetidas."
+    },
+    {
+      "name": "desarrollo",
+      "displayName": "Desarrollo",
+      "source": "./",
+      "description": "Roles de desarrollo: ingeniería de apps y web, webs premium.",
+      "skills": [
+        "./skills/ingeniero-software"
+      ]
+    },
+    {
+      "name": "herramientas",
+      "displayName": "Herramientas",
+      "source": "./",
+      "description": "Herramientas para crear, probar y mejorar skills.",
+      "skills": [
+        "./skills/skills"
+      ]
+    }
+  ]
+}
