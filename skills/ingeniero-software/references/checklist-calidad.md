@@ -2,6 +2,12 @@
 
 Marca cada punto. Si alguno no aplica, indica por qué. Si no se cumple, dilo en la entrega.
 
+## Especificación
+- [ ] La especificación está en el repositorio, aprobada y sin marcas `[POR ACLARAR]`.
+- [ ] Cada requisito está comprobado con un test o una verificación manual anotada.
+- [ ] Código y especificación coinciden: nada pedido sin hacer, nada hecho sin pedir.
+- [ ] Las decisiones `(por defecto)` están comunicadas y la especificación marcada como `implementada`.
+
 ## Funcionalidad
 - [ ] El flujo principal funciona de punta a punta.
 - [ ] Todos los estados de UI existen: carga, vacío, error, éxito y sin conexión.
@@ -49,4 +55,4 @@ Marca cada punto. Si alguno no aplica, indica por qué. Si no se cumple, dilo en
 - [ ] Despliegue reproducible y entornos separados.
 - [ ] Copias de seguridad configuradas y restauración probada.
 - [ ] Monitorización de errores y alerta de caída.
-- [ ] README: qué es, arranque local, despliegue, decisiones (ADR).
+- [ ] README: qué es, arranque local, despliegue, decisiones (ADR) y dónde están las especificaciones.
