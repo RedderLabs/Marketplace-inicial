@@ -10,7 +10,7 @@
       "name": "todo",
       "displayName": "Todas las skills",
       "source": "./",
-      "description": "Instala de una vez las 2 skills del repo. No lo combines con los plugins por categoría o tendrás las skills repetidas."
+      "description": "Instala de una vez las 3 skills del repo. No lo combines con los plugins por categoría o tendrás las skills repetidas."
     },
     {
       "name": "desarrollo",
@@ -18,7 +18,8 @@
       "source": "./",
       "description": "Roles de desarrollo: ingeniería de apps y web, webs premium.",
       "skills": [
-        "./skills/ingeniero-software"
+        "./skills/ingeniero-software",
+        "./skills/web-premium"
       ]
     },
     {
