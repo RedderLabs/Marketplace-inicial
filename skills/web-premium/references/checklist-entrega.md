@@ -44,6 +44,8 @@ Marca cada punto. Si no aplica, di por qué. Si no se cumple, dilo en la entrega
 ## Revisión de diseño
 - [ ] `/impeccable critique`, `audit` y `polish` ejecutados, sin problemas graves abiertos.
 - [ ] `design:design-critique` y `design:accessibility-review` ejecutados.
+- [ ] `/web-quality-skills:web-quality-audit` ejecutado sobre la web en marcha, con los resultados medidos anotados.
+- [ ] `design-qa` ejecutado sobre la web en marcha. Marcas `[PENDIENTE]` buscadas a mano y comunicadas.
 - [ ] "Pre-Delivery Checklist" de ui-ux-pro-max pasado.
 - [ ] Una sola dirección y una sola skill de estilo. Sin librerías de animación que el usuario no haya pedido.
 - [ ] `PRODUCT.md` y `DESIGN.md` coinciden con lo entregado. No existe `design-system/MASTER.md`.

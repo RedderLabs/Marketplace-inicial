@@ -15,7 +15,13 @@ Una prueba completa puede durar bastante y consume de tu uso normal.
 /plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
 /plugin install ui-ux-pro-max@ui-ux-pro-max-skill
 /plugin install claude-security@claude-plugins-official
+/plugin marketplace add addyosmani/web-quality-skills
+/plugin install web-quality-skills@addy-web-quality-skills
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install design-qa@claude-code-skills
 ```
+
+`design-qa` necesita además Node 18 o superior.
 
 ## 2. Instalar la versión a probar
 
@@ -81,7 +87,7 @@ Marca cada punto mientras avanza. Un fallo significa que hay que corregir la ski
 | Fase 3 | Si no hay herramienta de imágenes, lo dice y sigue sin maquetas. |
 | Fase 4 | Todo el texto está en `src/content.ts`, y lo que falta está marcado `[PENDIENTE]`. |
 | Cada parte | Lanza Claude Security, o te pide que escribas el comando, antes de seguir con la siguiente. |
-| Fase 5 | Ejecuta las revisiones de diseño y el checklist, y dice qué no se cumple. |
+| Fase 5 | Ejecuta las revisiones de diseño, mide con `web-quality-skills`, comprueba con `design-qa`, pasa el checklist y dice qué no se cumple. |
 | Entrega | Indica qué skills o revisiones faltaron y **no despliega nada**. |
 
 Al terminar, ejecuta esto en la carpeta de la prueba:

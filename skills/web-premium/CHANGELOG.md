@@ -1,5 +1,11 @@
 # Changelog — web-premium
 
+## 2026-11-02 (4)
+- Cambio: añade `web-quality-skills` y `design-qa` a la Fase 5, y las guías `copywriting` y `site-architecture` en `references/externas/`, sin sus scripts. Quedan documentadas las skills descartadas y por qué.
+- Motivo: "aqui hay mas" y "haz lo que sea factible", sobre las skills propuestas de labgeeks y de `alirezarezvani/claude-skills`.
+- Revisión: lectura estática, sin ejecutar nada. `skill-security-auditor` no se pudo ejecutar porque los permisos bloquearon el código externo.
+- Prueba: pendiente de un caso real del usuario.
+
 ## 2026-11-02 (3)
 - Cambio: `references/skills-diseno.md` pasa a reunir todas las skills de diseño premium disponibles, con qué usar en cada fase, cómo elegir un único estilo, qué manda si chocan y cuáles quedan fuera.
 - Motivo: "el skill de web tenga todas las skill para un diseño premium".

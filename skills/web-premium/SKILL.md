@@ -90,7 +90,8 @@ Stack por defecto:
   donde haga falta.
 
 Sigue los mínimos de oficio de `impeccable` y los patrones de `design-taste-frontend`. Si hay
-maquetas, pásalas a código con `image-to-code`. Para botones y mensajes, usa `design:ux-copy`.
+maquetas, pásalas a código con `image-to-code`. Para los textos de venta, lee
+`references/externas/copywriting/GUIA.md`; para botones y mensajes, usa `design:ux-copy`.
 
 Orden de trabajo:
 
@@ -128,7 +129,8 @@ es posible, dilo. **Nunca des por superada una comprobación que no se ha ejecut
 ## Fase 5 — Control de calidad
 
 Ejecuta `/impeccable critique`, `audit` y `polish`, `design:design-critique` y
-`design:accessibility-review`, pasa el "Pre-Delivery Checklist" de ui-ux-pro-max y después
+`design:accessibility-review`, mide con `/web-quality-skills:web-quality-audit` y comprueba la web en
+marcha con `design-qa`. Pasa el "Pre-Delivery Checklist" de ui-ux-pro-max y después
 `references/checklist-entrega.md` completo. Lo innegociable:
 
 - Sin scroll horizontal a 390, 768, 1280 y 1920 px.

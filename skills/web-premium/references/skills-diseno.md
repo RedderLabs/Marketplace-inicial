@@ -20,17 +20,20 @@ superan las 1.000 líneas y varias se contradicen entre sí. Una web premium tie
 | Web existente | `redesign-existing-projects` | Auditoría y mejora sin rehacer desde cero. |
 | Especialistas | `design:design-critique`, `design:accessibility-review`, `design:ux-copy`, `design:design-system`, `design:design-handoff` | Crítica, accesibilidad, textos de interfaz, sistema y traspaso. |
 | Investigación | `design:user-research`, `design:research-synthesis` | Solo si hay que investigar o existen datos reales de usuarios. |
+| Medición | `web-quality-skills:*` | Lighthouse, Core Web Vitals, rendimiento, accesibilidad, SEO y buenas prácticas, medidos. |
+| Comprobación final | `design-qa` | Revisa la web ya renderizada: controles que no hacen nada, estados, foco, contraste y 320 px. |
+| Guías | `references/externas/copywriting/GUIA.md`, `references/externas/site-architecture/GUIA.md` | Textos de venta por sección y estructura de páginas y URL. Se leen, no se invocan. |
 
 ## Qué usar en cada fase
 
 | Fase | Siempre | Solo si hace falta |
 |---|---|---|
 | 0. Brief | `/impeccable init` guarda el producto en `PRODUCT.md`. | `redesign-existing-projects` si ya hay web. `brandkit` si no hay marca. `design:user-research` o `design:research-synthesis`. |
-| 1. Concepto | `--design-system` de `ui-ux-pro-max` para contrastar con el sector. `frontend-design` y la lectura del brief de `design-taste-frontend`. `/impeccable shape <web>` decide la dirección. | — |
+| 1. Concepto | `--design-system` de `ui-ux-pro-max` para contrastar con el sector. `frontend-design` y la lectura del brief de `design-taste-frontend`. `/impeccable shape <web>` decide la dirección. | La guía `site-architecture` si la web tiene varias páginas. |
 | 2. Sistema de diseño | La skill de estilo elegida. `DESIGN.md` con la dirección aprobada. | `--domain color` y `--domain typography`. `design:design-system`. |
 | 3. Imágenes | Los criterios de la Fase 3 de `SKILL.md`. | `imagegen-frontend-web` para maquetas por sección, si hay herramienta de generar imágenes. |
-| 4. Construcción | Los mínimos de oficio de `impeccable`. Los patrones de `design-taste-frontend`. | `image-to-code` si se parte de maquetas. `/impeccable animate` u `overdrive` si el momento lo necesita. `design:ux-copy` para botones y mensajes. `--domain ux` para dudas. |
-| 5. Calidad | `/impeccable critique`, `audit` y `polish`. `design:design-critique`. `design:accessibility-review`. El "Pre-Delivery Checklist" de `ui-ux-pro-max`. | — |
+| 4. Construcción | Los mínimos de oficio de `impeccable`. Los patrones de `design-taste-frontend`. | `image-to-code` si se parte de maquetas. `/impeccable animate` u `overdrive` si el momento lo necesita. La guía `copywriting` para los textos de venta y `design:ux-copy` para botones y mensajes. `--domain ux` para dudas. |
+| 5. Calidad | `/impeccable critique`, `audit` y `polish`. `design:design-critique`. `design:accessibility-review`. El "Pre-Delivery Checklist" de `ui-ux-pro-max`. `/web-quality-skills:web-quality-audit`, con `core-web-vitals` y `seo`. `design-qa` sobre la web en marcha. | — |
 | 6. Entrega | `/impeccable document` si `DESIGN.md` no refleja lo entregado. | `design:design-handoff` si otro equipo seguirá con la web. |
 
 Modo de `impeccable` según la página: landing, corporativa o lanzamiento son **Persuade**;
@@ -88,6 +91,14 @@ Choques que ya se conocen:
 | `design-taste-frontend` prohíbe dibujar SVG a mano | Vale para iconos. Los trazados narrativos sí se dibujan. |
 | Piden logotipos de clientes, testimonios o cifras de ejemplo | Solo con datos confirmados. Lo que falte se marca `[PENDIENTE]`. |
 | Las skills de imagen exigen generar imágenes y no hay herramienta para ello | Sáltalas, sigue con la dirección aprobada y dilo en la entrega. |
+| Los ejemplos de `web-quality-skills` usan valoraciones (`AggregateRating`), Google Fonts o Next.js | Son solo ejemplos. Valoraciones únicamente si son reales y visibles en la página; fuentes autoalojadas; el stack es el de la Fase 4. |
+| `web-quality-skills` y `design-qa` miden WCAG 2.2 | El mínimo sigue siendo 2.1 AA. Corrige lo que incumpla 2.1 AA y anota aparte lo que solo afecte a 2.2. |
+| `design-qa` no detecta las marcas `[PENDIENTE]` | Búscalas a mano en `src/` antes de dar la web por terminada, y comunica las que queden. |
+| `design-qa` necesita Playwright | Instálalo solo como dependencia de desarrollo. Si no se puede, usa su alternativa desde la consola del navegador y dilo en la entrega. |
+| `copywriting` pide `.claude/product-marketing-context.md` | Usa `PRODUCT.md` y el brief. |
+| `copywriting` pide puntuar titulares con su script | No se copió: solo acepta inglés y premia palabras de urgencia. Elige con sus principios. |
+| `copywriting` propone urgencia, escasez o pruebas sociales | Solo si son ciertas y las confirma el cliente. Sin pruebas reales, marca `[PENDIENTE]`; no las inventes. |
+| `site-architecture` propone silos o un análisis con `sitemap_analyzer.py` | Los silos, solo en webs con mucho contenido. El script no se copió. |
 
 ## Cuáles se quedan fuera
 
@@ -96,6 +107,12 @@ Choques que ya se conocen:
 - `imagegen-frontend-mobile`: es para apps móviles.
 - `kakulex-design` y `brand-guidelines`: son las marcas de Kakulex y de Anthropic.
 - `theme-factory`: temas prefabricados, lo contrario de una dirección propia.
+- `a11y-audit`: su documentación describe opciones que su script no tiene y no analiza archivos `.astro`.
+- `seo-audit`, `schema-markup` y `meta-tags-optimizer`: los cubre `web-quality-skills:seo`. Instalarlas añadiría muchas skills más.
+- `page-cro` y `form-cro`: dan por buenas pruebas sociales sin verificar, proponen ventanas emergentes y enriquecer formularios con terceros sin consentimiento.
+- `local-seo-manager`: pensada para reparaciones en EE. UU., con afirmaciones comerciales fijas en sus scripts y riesgo de páginas de relleno.
+- `epic-design`: carga GSAP desde un servidor externo.
+- `webapp-testing`: `design-qa` ya cubre esta revisión, y sus scripts ejecutan comandos y escriben fuera del proyecto.
 
 ## Si falta alguna
 
@@ -106,7 +123,15 @@ Comprueba cuáles están disponibles antes de la Fase 0.
   - `ui-ux-pro-max`: `/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill` y después
     `/plugin install ui-ux-pro-max@ui-ux-pro-max-skill`. Sus búsquedas necesitan Python 3.
   - `impeccable`: instrucciones en https://impeccable.style/docs/
-- **El resto:** sigue sin ella y sustitúyela por los criterios de las demás.
+- **El resto:** sigue sin ella y sustitúyela por los criterios de las demás. Las dos de medición se
+  instalan así:
+  - `web-quality-skills`: `/plugin marketplace add addyosmani/web-quality-skills` y después
+    `/plugin install web-quality-skills@addy-web-quality-skills`.
+  - `design-qa`: `/plugin marketplace add alirezarezvani/claude-skills` y después
+    `/plugin install design-qa@claude-code-skills`. Necesita Python y Node 18 o superior.
+
+Se revisaron leyéndolas, sin ejecutarlas, en los commits `afa8da9` (`web-quality-skills`) y `e4a1dc3`
+(`design-qa`). Al instalarlas se recibe la última versión, que puede ser distinta.
 
 Indica en la entrega qué skills y revisiones faltaron. **Nunca des por hecha una revisión que no
 se ha ejecutado.**
