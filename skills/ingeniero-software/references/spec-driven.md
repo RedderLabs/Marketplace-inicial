@@ -28,7 +28,8 @@ specs/
 3. **Planificar.** Escribe `plan.md`: decisiones técnicas que cumplen los requisitos.
 4. **Dividir.** Escribe `tareas.md`: cada tarea cita su requisito y dice cómo se comprueba.
 5. **Construir.** Una tarea cada vez. Cada criterio de aceptación da al menos un test,
-   escrito antes o junto al código, con el identificador en su nombre.
+   escrito antes o junto al código, con el identificador en su nombre. Al acabar cada tarea,
+   pasa Claude Security como indica `SKILL.md`, antes de empezar la siguiente.
 6. **Verificar.** Comprueba requisito por requisito, no solo que los tests pasen.
 7. **Mantener.** Marca la especificación como `implementada`. A partir de ahí describe lo
    que el software hace hoy.

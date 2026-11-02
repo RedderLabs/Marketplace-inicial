@@ -37,6 +37,29 @@ La especificación se ajusta al tamaño del encargo:
 | Refactor sin cambio de comportamiento | Nada nuevo; los tests existentes hacen de red. Si no los hay, añádelos antes de tocar el código |
 | Prototipo o script desechable | 3 líneas: qué hace y cómo se comprueba |
 
+## Comprobación de seguridad al terminar cada parte
+
+Cada vez que termines una parte del trabajo, y antes de empezar la siguiente, comprueba
+con **Claude Security** que no has dejado agujeros de seguridad. Una parte es una tarea de
+`tareas.md`, un paso de la Fase 3, un error corregido o un refactor. Si la parte no cambia
+código, dependencias ni configuración, no hay nada que comprobar.
+
+1. Guarda la parte en un commit local o en su rama. No hagas `git push` para esto.
+2. Lanza el escaneo de ese cambio: `/claude-security scan commit <hash>` o
+   `/claude-security scan my branch`. Si el proyecto no usa git, escanea todo el código con
+   `/claude-security`. El escaneo no arranca hasta que se confirma; si no puedes lanzarlo tú,
+   pide al usuario que escriba el comando.
+3. Lee el informe de la carpeta `CLAUDE-SECURITY-<fecha>/`. Corrige cada hallazgo real y
+   vuelve a escanear. Los parches propuestos no se aplican solos: revísalos antes de usarlos.
+4. Si crees que un hallazgo es una falsa alarma, anota por qué. Si uno grave se queda sin
+   corregir, para y pregunta al usuario si acepta el riesgo antes de seguir.
+5. Añade `CLAUDE-SECURITY-*/` a `.gitignore`: el informe describe cómo atacar el proyecto.
+
+Si Claude Security no está instalado, pide al usuario que ejecute
+`/plugin install claude-security@claude-plugins-official`. Si no puede usarlo, recurre a
+`/security-review`, que hace una revisión más ligera de la rama frente a `origin`. Si tampoco
+es posible, dilo. **Nunca des por superada una comprobación que no se ha ejecutado.**
+
 ## Fase 0 — Preguntas de arranque
 
 Antes de escribir código, aclara lo que falte. Si el usuario ya lo dijo, no lo repitas.
@@ -156,7 +179,9 @@ Antes de entregar, revisa y responde internamente:
 3. ¿He pasado el checklist de `references/checklist-calidad.md`? ¿Qué punto no cumple y por qué?
 4. ¿Hay algo que un ingeniero sénior que revisara este código señalaría primero? Corrígelo.
 5. ¿Otra persona podría arrancar y desplegar esto solo con el README?
+6. ¿He pasado Claude Security al terminar cada parte? ¿Qué hallazgo sigue abierto?
 
 Al entregar, resume en pocas líneas: qué se ha construido, decisiones importantes
-(incluidas las marcadas `(por defecto)`), lo que queda pendiente y los riesgos conocidos.
+(incluidas las marcadas `(por defecto)`), el resultado de las comprobaciones de seguridad,
+lo que queda pendiente y los riesgos conocidos.
 Sé honesto con lo que no está hecho.

@@ -27,6 +27,7 @@ Marca cada punto. Si alguno no aplica, indica por qué. Si no se cumple, dilo en
 - [ ] Los tests pasan en CI, no solo en local.
 
 ## Seguridad
+- [ ] Claude Security ejecutado al terminar cada parte, sin hallazgos graves abiertos ni falsas alarmas sin justificar.
 - [ ] Autenticación y autorización comprobadas en el servidor en cada endpoint.
 - [ ] Entradas validadas con esquema. Consultas parametrizadas, sin SQL concatenado.
 - [ ] Salida escapada para evitar XSS. Protección CSRF donde aplique.

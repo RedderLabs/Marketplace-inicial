@@ -1,5 +1,10 @@
 # Changelog — ingeniero-software
 
+## 2026-11-02
+- Cambio: al terminar cada parte del trabajo se comprueba con Claude Security (`/claude-security`) que no hay agujeros de seguridad. Añadido también al checklist, al ciclo de especificaciones y a la autorrevisión.
+- Motivo: "cada vez que finalice una parte del trabajo estos deben usar Claude Security para comprobar que no hay agujeros de seguridad".
+- Prueba: pendiente de un caso real del usuario.
+
 ## 2026-10-31 (2)
 - Cambio: el desarrollo pasa a estar guiado por especificaciones (especificación → plan → tareas → tests y código → verificación), proporcional al tamaño del encargo. Añadido `references/spec-driven.md` y una sección de especificación en el checklist.
 - Motivo: "la skill de ingeniero debe contemplar esta forma de desarrollar Spec-Driven Development".
