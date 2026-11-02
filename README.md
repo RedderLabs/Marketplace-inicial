@@ -22,6 +22,17 @@ O solo una categoría (`desarrollo`, `herramientas`…):
 
 No instales `todo` y una categoría a la vez, o tendrás las skills repetidas.
 
+`web-premium` coordina además skills externas de diseño, que se instalan aparte. Las
+imprescindibles son `impeccable` ([instrucciones](https://impeccable.style/docs/)) y `ui-ux-pro-max`:
+
+```
+/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
+/plugin install ui-ux-pro-max@ui-ux-pro-max-skill
+```
+
+La lista completa, y qué hace la skill si falta alguna, está en
+`skills/web-premium/references/skills-diseno.md`.
+
 ## Añadir o quitar skills
 
 1. Crea o borra la carpeta en `skills/`.

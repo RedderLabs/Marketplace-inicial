@@ -17,6 +17,14 @@ Principios:
 - **Espectacular y rápida a la vez.** Si hay que elegir, gana la rapidez.
 - **Todo el texto en un solo archivo de contenido**, nunca repartido por los componentes.
 
+## Skills de diseño integradas
+
+Esta skill reúne a todas las skills de diseño premium disponibles como un solo equipo:
+**`/impeccable`** dirige y revisa, **`/ui-ux-pro-max:ui-ux-pro-max`** aporta datos, y el resto
+cubre estilo, imagen, marca, textos y accesibilidad. Lee `references/skills-diseno.md` antes de la
+Fase 0: dice qué usar en cada fase, cómo elegir un único estilo, qué manda si chocan y qué hacer
+si falta alguna. Carga en cada fase solo las que indica.
+
 ## Fase 0 — Brief
 
 Pregunta lo que falte, como máximo 5 cosas a la vez y con un valor recomendado:
@@ -32,9 +40,14 @@ Pregunta lo que falte, como máximo 5 cosas a la vez y con un valor recomendado:
 Si el usuario trae un prompt o una web de referencia, ve antes a
 **"Partir de un prompt de referencia"**.
 
+Con las respuestas, ejecuta `/impeccable init` para guardar el producto en `PRODUCT.md`. Si ya hay
+web, audítala con `redesign-existing-projects`; si no hay marca, créala con `brandkit`.
+
 ## Fase 1 — Concepto
 
-Entrega y espera el OK antes de construir:
+Contrasta el sector con `--design-system` de ui-ux-pro-max, lee el brief con `frontend-design` y
+`design-taste-frontend`, y define la dirección con `/impeccable shape`. Después entrega y espera
+el OK antes de construir:
 
 1. **Concepto en una frase** y el **momento** de la web.
 2. **Mapa de secciones** en una tabla: sección | qué cuenta | patrón | llamada a la acción.
@@ -44,6 +57,9 @@ Entrega y espera el OK antes de construir:
 
 ## Fase 2 — Sistema de diseño
 
+- Parte de la dirección aprobada y regístrala en `DESIGN.md`. Aplica **una sola** skill de estilo
+  (cómo elegirla, en `references/skills-diseno.md`). Para lo que quede abierto, consulta paletas
+  y fuentes en ui-ux-pro-max.
 - Tokens en un bloque `@theme` (Tailwind v4) o variables CSS: colores, tipografía,
   escala con `clamp()`, radios y curvas de animación. Nada de valores sueltos.
 - **Tres papeles tipográficos**: display (titulares, con carácter), texto (lectura) y
@@ -54,6 +70,7 @@ Entrega y espera el OK antes de construir:
 
 ## Fase 3 — Imágenes y assets
 
+- Si hay herramienta de generar imágenes, crea maquetas por sección con `imagegen-frontend-web`.
 - Plan de imágenes: qué, tamaño, formato y corte para escritorio (`d`) y móvil (`m`).
 - Capas para parallax: **cortadas de una sola imagen** para que encajen (cómo hacerlo en
   `references/patrones-cinematicos.md`).
@@ -72,6 +89,9 @@ Stack por defecto:
 - **Varias páginas y mucho contenido:** Astro + Tailwind v4, con islas interactivas solo
   donde haga falta.
 
+Sigue los mínimos de oficio de `impeccable` y los patrones de `design-taste-frontend`. Si hay
+maquetas, pásalas a código con `image-to-code`. Para botones y mensajes, usa `design:ux-copy`.
+
 Orden de trabajo:
 
 1. `src/content.ts` con todo el texto (los textos que no te hayan dado, márcalos como
@@ -82,9 +102,34 @@ Orden de trabajo:
 5. Versión con movimiento reducido de cada sección.
 6. SEO: título, descripción, Open Graph, `lang` correcto, `robots.txt` y `sitemap.xml`.
 
+## Comprobación de seguridad al terminar cada parte
+
+Cada vez que termines una parte del trabajo, y antes de empezar la siguiente, comprueba
+con **Claude Security** que no has dejado agujeros de seguridad. Una parte es una fase que
+cambie código, un paso de la Fase 4 o una sección de la web. Si la parte no cambia código,
+dependencias ni configuración, no hay nada que comprobar.
+
+1. Guarda la parte en un commit local o en su rama. No hagas `git push` para esto.
+2. Lanza el escaneo de ese cambio: `/claude-security scan commit <hash>` o
+   `/claude-security scan my branch`. Si el proyecto no usa git, escanea todo el código con
+   `/claude-security`. El escaneo no arranca hasta que se confirma; si no puedes lanzarlo tú,
+   pide al usuario que escriba el comando.
+3. Lee el informe de la carpeta `CLAUDE-SECURITY-<fecha>/`. Corrige cada hallazgo real y
+   vuelve a escanear. Los parches propuestos no se aplican solos: revísalos antes de usarlos.
+4. Si crees que un hallazgo es una falsa alarma, anota por qué. Si uno grave se queda sin
+   corregir, para y pregunta al usuario si acepta el riesgo antes de seguir.
+5. Añade `CLAUDE-SECURITY-*/` a `.gitignore`: el informe describe cómo atacar la web.
+
+Si Claude Security no está instalado, pide al usuario que ejecute
+`/plugin install claude-security@claude-plugins-official`. Si no puede usarlo, recurre a
+`/security-review`, que hace una revisión más ligera de la rama frente a `origin`. Si tampoco
+es posible, dilo. **Nunca des por superada una comprobación que no se ha ejecutado.**
+
 ## Fase 5 — Control de calidad
 
-Pasa `references/checklist-entrega.md` completo. Lo innegociable:
+Ejecuta `/impeccable critique`, `audit` y `polish`, `design:design-critique` y
+`design:accessibility-review`, pasa el "Pre-Delivery Checklist" de ui-ux-pro-max y después
+`references/checklist-entrega.md` completo. Lo innegociable:
 
 - Sin scroll horizontal a 390, 768, 1280 y 1920 px.
 - Las escenas ocurren en el orden de la coreografía.
@@ -94,6 +139,7 @@ Pasa `references/checklist-entrega.md` completo. Lo innegociable:
 ## Fase 6 — Entrega
 
 - README: cómo arrancarla, cómo cambiar textos (solo `content.ts`) e imágenes, y cómo desplegar.
+- `DESIGN.md` al día con lo entregado (`/impeccable document` si no coincide).
 - **Pide aprobación explícita antes de desplegar o publicar.** Nunca pongas claves en el código.
 - Opcional: **exportar la web como prompt de un solo paso** (formato SELENE) con
   `scripts/exportar-prompt.py`. Instrucciones en `references/plantilla-prompt.md`.
@@ -128,3 +174,6 @@ Cuando el usuario trae un prompt como SELENE o una web que le gusta:
 2. ¿El momento de la web funciona en un móvil de gama media?
 3. ¿He pasado el checklist completo? ¿Qué no cumple y por qué?
 4. ¿Hay algún texto, dato o imagen inventado que el cliente no haya confirmado? Márcalo.
+5. ¿He pasado Claude Security al terminar cada parte? ¿Qué hallazgo sigue abierto? Dilo en la entrega.
+6. ¿He ejecutado las revisiones de diseño de cada fase? Di en la entrega cuál faltó y por qué.
+7. ¿Se nota una sola dirección y un solo estilo, o se ve la mezcla de varias skills? Corrígelo.

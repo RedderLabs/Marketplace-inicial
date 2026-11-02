@@ -41,6 +41,16 @@ Marca cada punto. Si no aplica, di por qué. Si no se cumple, dilo en la entrega
 - [ ] Si hay formulario: consentimiento, política de privacidad y destino real de los datos.
 - [ ] Aviso legal y, si hay cookies no esenciales, banner de consentimiento.
 
+## Revisión de diseño
+- [ ] `/impeccable critique`, `audit` y `polish` ejecutados, sin problemas graves abiertos.
+- [ ] `design:design-critique` y `design:accessibility-review` ejecutados.
+- [ ] "Pre-Delivery Checklist" de ui-ux-pro-max pasado.
+- [ ] Una sola dirección y una sola skill de estilo. Sin librerías de animación que el usuario no haya pedido.
+- [ ] `PRODUCT.md` y `DESIGN.md` coinciden con lo entregado. No existe `design-system/MASTER.md`.
+
+## Seguridad
+- [ ] Claude Security ejecutado al terminar cada parte, sin hallazgos graves abiertos ni falsas alarmas sin justificar.
+
 ## SEO
 - [ ] `lang` correcto, `<title>` y `meta description` propios.
 - [ ] Open Graph y Twitter Card con imagen de 1200×630.
