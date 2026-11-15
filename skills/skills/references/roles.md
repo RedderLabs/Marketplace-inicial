@@ -13,6 +13,7 @@ Nunca se combinan dos roles. Si el proyecto mezcla partes, manda el rol que abar
 | App móvil | `ingeniero-software` |
 | API, backend, microservicio | `ingeniero-software` |
 | CLI, scripts, automatización, bots | `ingeniero-software` |
+| Diseño de un sistema de agentes de IA (multi-agente) para un flujo de trabajo | `arquitecto-agentes` |
 | Librería o paquete | `ingeniero-software` |
 | Juego | `ingeniero-software` |
 | Solo web corporativa, landing, portfolio o tienda pequeña, sin aplicación detrás | `web-premium` |

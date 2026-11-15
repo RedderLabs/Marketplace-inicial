@@ -16,7 +16,7 @@ MARKETPLACE = "redder-roles"
 PROPIETARIO = {"name": "Redder Labs", "url": "https://redderlabs.com"}
 
 DESCRIPCIONES = {
-    "desarrollo": "Roles de desarrollo: ingeniería de apps y web, webs premium.",
+    "desarrollo": "Roles de desarrollo: ingeniería de apps y web, webs premium, sistemas de agentes de IA.",
     "creativos": "Roles creativos: guion, novela, escritura.",
     "negocio": "Roles de negocio: análisis financiero, estrategia.",
     "herramientas": "Herramientas para crear, probar y mejorar skills.",
